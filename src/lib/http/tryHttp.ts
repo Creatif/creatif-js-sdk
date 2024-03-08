@@ -1,5 +1,5 @@
 import { Api } from '@lib/http/api';
-import type { CreatifError } from '@appTypes/Http';
+import type { CreatifError, TryHttpResult } from '@appTypes/Http';
 
 export function isError(val: unknown): val is CreatifError {
     const a = val as CreatifError;
@@ -11,11 +11,9 @@ export async function tryHttp<ReturnType, Body = unknown>(
     path: string,
     body?: Body,
     headers: Record<string, string> = {},
-): Promise<{ result: ReturnType; status: number }> {
+): Promise<TryHttpResult<ReturnType>> {
     try {
         const res = await Api[method](path, body, headers);
-
-        console.log(res.status);
 
         if (res.ok) {
             return {
