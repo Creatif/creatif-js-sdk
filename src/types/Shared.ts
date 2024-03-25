@@ -1,6 +1,10 @@
 export type Behaviour = 'modifiable' | 'readonly';
 export type ConnectionType = 'map' | 'list';
 
+export interface Options {
+    valueOnly?: boolean;
+}
+
 export interface ConnectionItem<Value> {
     structureId: string;
     structureShortId: string;
@@ -20,3 +24,6 @@ export interface ConnectionItem<Value> {
     createdAt: string;
     updatedAt: string | null;
 }
+
+export type OrderBy = 'index' | 'name' | 'created_at' | 'updated_at';
+export type OrderDirection = 'desc' | 'asc';

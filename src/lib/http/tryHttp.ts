@@ -1,5 +1,5 @@
-import { Api } from '@lib/http/api';
 import type { CreatifError, TryHttpResult } from '@appTypes/Http';
+import { Api } from '@lib/http/api';
 
 export function isError(val: unknown): val is CreatifError {
     const a = val as CreatifError;
@@ -19,6 +19,7 @@ export async function tryHttp<ReturnType, Body = unknown>(
             return {
                 result: (await res.json()) as ReturnType,
                 status: res.status,
+                response: res,
             };
         }
 
@@ -26,13 +27,15 @@ export async function tryHttp<ReturnType, Body = unknown>(
             return {
                 result: (await res.json()) as ReturnType,
                 status: res.status,
+                response: res,
             };
         }
 
-        if (res.status === 400) {
+        if (res.status === 400 || res.status === 404) {
             return {
                 result: (await res.json()) as ReturnType,
                 status: res.status,
+                response: res,
             };
         }
 
@@ -42,6 +45,7 @@ export async function tryHttp<ReturnType, Body = unknown>(
                 messages: 'An unexpected error happened',
             } as ReturnType,
             status: 500,
+            response: res,
         };
     } catch (e) {
         return {
@@ -50,6 +54,7 @@ export async function tryHttp<ReturnType, Body = unknown>(
                 messages: 'An unexpected error happened',
             } as ReturnType,
             status: 500,
+            response: undefined,
         };
     }
 }

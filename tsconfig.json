@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": true,
-    "module": "es2022",
+    "module": "esnext",
     "target": "ES5",
     "moduleResolution": "bundler",
     "declaration": true,
@@ -15,7 +15,7 @@
     "paths": {
       "@lib/*": ["src/lib/*"],
       "@app/*": ["src/app/*"],
-      "@appTypes/*": ["src/appTypes/*"]
+      "@appTypes/*": ["src/types/*"]
     }
   },
   "include": ["src/**/*"],

@@ -9,6 +9,6 @@ export class Runtime {
     }
 
     baseUrl(): string {
-        return `${this.url}`;
+        return `${this.url}/${Runtime.instance.projectId}`;
     }
 }

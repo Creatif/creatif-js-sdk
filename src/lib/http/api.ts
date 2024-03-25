@@ -26,8 +26,6 @@ class api {
     }
 
     async get<Body>(path: string, body: Body, headers: Record<string, string> = {}) {
-        console.log(`${Runtime.instance.baseUrl()}${path}`);
-
         return fetch(`${Runtime.instance.baseUrl()}${path}`, {
             method: 'get',
             headers: {
