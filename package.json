@@ -1,15 +1,29 @@
 {
-    "name": "creatif",
-    "private": true,
+    "name": "creatif-js-sdk",
     "version": "0.0.1",
     "type": "module",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/Creatif/creatif-js-sdk"
+    },
+    "main": "build/index.js",
+    "keywords": [
+        "cms",
+        "creatif",
+        "creatif-js-sdk"
+    ],
+    "author": {
+        "email": "marioskrlec222@proton.me",
+        "name": "Mario Škrlec"
+    },
+    "files": [
+        "build"
+    ],
     "scripts": {
-        "dev": "vite",
         "compile": "tsc --noEmit",
         "build": "npm run compile && npm run pretty && npm run es-lint && vite build --mode production",
         "pretty": "prettier --loglevel='warn' --log-level='error' --write .",
         "es-lint": "eslint --fix .",
-        "preview": "vite preview",
         "npm-publish": "npm run build && npm publish"
     },
     "devDependencies": {
