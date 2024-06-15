@@ -1,11 +1,18 @@
 export class Runtime {
     public static instance: Runtime;
-    private readonly url = 'http://localhost:3002/api/v1/public';
+    private readonly url: string = 'http://localhost:3002/api/v1/public';
 
-    private constructor(public readonly projectId: string) {}
+    private constructor(
+        public readonly projectId: string,
+        baseUrl: string | undefined,
+    ) {
+        if (!baseUrl) return;
 
-    static init(projectId: string) {
-        Runtime.instance = new Runtime(projectId);
+        this.url = `${baseUrl}/api/v1/public`;
+    }
+
+    static init(projectId: string, baseUrl: string | undefined) {
+        Runtime.instance = new Runtime(projectId, baseUrl);
     }
 
     baseUrl(): string {
