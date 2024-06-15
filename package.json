@@ -1,6 +1,6 @@
 {
     "name": "creatif-js-sdk",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "type": "module",
     "license": "MIT",
     "repository": {
@@ -45,7 +45,7 @@
         "terser": "5.27.0",
         "ts-node": "10.9.1",
         "typescript": "5.2.2",
-        "vite": "5.1.4",
+        "vite": "^5.3.1",
         "vite-plugin-dts": "3.7.3"
     }
 }
