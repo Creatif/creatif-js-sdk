@@ -1,24 +1,23 @@
 {
-  "compilerOptions": {
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "target": "ES5",
-    "moduleResolution": "bundler",
-    "declaration": true,
-    "rootDir": ".",
-    "outDir": "build",
-    "strict": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "paths": {
-      "@lib/*": ["src/lib/*"],
-      "@app/*": ["src/app/*"],
-      "@appTypes/*": ["src/types/*"]
-    }
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "build"]
+    "compilerOptions": {
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "useDefineForClassFields": true,
+        "module": "esnext",
+        "target": "ES5",
+        "moduleResolution": "bundler",
+        "declaration": true,
+        "rootDir": ".",
+        "outDir": "build",
+        "strict": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@lib/*": ["src/lib/*"],
+            "@app/*": ["src/app/*"],
+            "@appTypes/*": ["src/types/*"]
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "build"]
 }
-

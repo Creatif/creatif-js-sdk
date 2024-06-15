@@ -13,21 +13,27 @@ export default defineConfig({
             insertTypesEntry: true,
         }),
     ],
+    server: {
+        watch: {
+            include: ['src/**'],
+            exclude: ['node_modules/**', 'build/**'],
+        },
+    },
     resolve: {
         alias: {
             '@app': join(__dirname, 'src/app'),
             '@lib': join(__dirname, 'src/lib'),
+            '@root': join(__dirname, 'src'),
+            '@appTypes': join(__dirname, 'src/types'),
         },
     },
     build: {
-        target: 'modules',
-        lib: {
-            // Could also be a dictionary or array of multiple entry points
-            entry: [resolve(__dirname, 'src/index.ts')],
-            name: 'creatif',
-            // the proper extensions will be added
-            fileName: 'index',
-        },
         outDir: 'build',
+        copyPublicDir: false,
+        lib: {
+            entry: resolve(__dirname, 'src/index.ts'),
+            fileName: 'index',
+            formats: ['es'],
+        },
     },
 });

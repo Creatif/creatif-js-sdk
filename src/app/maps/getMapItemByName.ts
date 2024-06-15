@@ -1,11 +1,14 @@
+import { tryHttp } from '@lib/http/tryHttp';
+import type { Result } from '@appTypes/Http';
+import { determineResult } from '@app/determineResult';
+import { Routes } from '@lib/http/routes';
 import type { GetMapItemByName, MapItem } from '@appTypes/Maps';
 import { parseQuery } from '@app/parseQuery';
-import { determineResult } from '@app/determineResult';
-import { tryHttp } from '@lib/http/tryHttp';
-import { Routes } from '@lib/http/routes';
-import type { Result } from '@appTypes/Http';
+import { checkRuntime } from '@lib/checkRuntime';
 
 export async function getMapItemByName<Value>(blueprint: GetMapItemByName): Promise<Result<MapItem<Value>>> {
+    checkRuntime();
+
     const httpResult = await tryHttp<MapItem<Value>>(
         'get',
         `${Routes.GET_MAP_ITEM_BY_NAME}/${blueprint.structureName}/${blueprint.name}${parseQuery(
@@ -13,7 +16,9 @@ export async function getMapItemByName<Value>(blueprint: GetMapItemByName): Prom
             blueprint.locale,
         )}`,
         null,
-        {},
+        {
+            'Creatif-Version': blueprint.versionName || '',
+        },
     );
 
     return determineResult<MapItem<Value>>(httpResult);

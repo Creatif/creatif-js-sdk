@@ -6,5 +6,4 @@ export enum Routes {
     GET_MAP_ITEM_BY_NAME = '/map',
     GET_MAP_ITEMS = '/maps',
     GET_LIST_ITEMS = '/lists',
-    GET_STRUCTURES = '/structures',
 }

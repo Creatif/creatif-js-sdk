@@ -1,5 +1,5 @@
-import type { TryHttpResult } from '@appTypes/Http';
 import { isError } from '@lib/http/tryHttp';
+import type { TryHttpResult } from '@appTypes/Http';
 
 export function determineResult<T>(httpResult: TryHttpResult<T>) {
     const result = httpResult.result;

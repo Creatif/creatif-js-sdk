@@ -42,7 +42,9 @@ export async function tryHttp<ReturnType, Body = unknown>(
         return {
             result: {
                 call: 'unknown',
-                messages: 'An unexpected error happened',
+                messages: {
+                    unexpectedError: 'An unexpected error occurred',
+                },
             } as ReturnType,
             status: 500,
             response: res,
@@ -51,7 +53,9 @@ export async function tryHttp<ReturnType, Body = unknown>(
         return {
             result: {
                 call: 'unknown',
-                messages: 'An unexpected error happened',
+                messages: {
+                    unexpectedError: 'An unexpected error occurred',
+                },
             } as ReturnType,
             status: 500,
             response: undefined,

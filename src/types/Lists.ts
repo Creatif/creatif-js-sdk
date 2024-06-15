@@ -1,4 +1,4 @@
-import type { Behaviour, ConnectionItem, Options, OrderBy, OrderDirection } from '@appTypes/Shared';
+import type { Behaviour, ConnectionItem, Options, OrderBy, OrderDirection } from './Shared';
 
 export interface ListItem<Value> {
     structureId: string;
@@ -23,6 +23,7 @@ export interface ListItem<Value> {
 export interface GetListItemByID {
     id: string;
     options?: Options;
+    versionName?: string;
 }
 
 export interface GetListItemsByName {
@@ -30,9 +31,11 @@ export interface GetListItemsByName {
     name: string;
     locale: string;
     options?: Options;
+    versionName?: string;
 }
 
 export interface PaginateListItems {
+    versionName?: string;
     structureName: string;
     page: number;
     search: string;
@@ -40,4 +43,6 @@ export interface PaginateListItems {
     orderDirection: OrderDirection;
     locales: string[];
     groups: string[];
+
+    options?: Options;
 }

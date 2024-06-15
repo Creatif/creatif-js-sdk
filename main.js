@@ -1,9 +1,11 @@
-import { getVersions, initialize } from './build/index.js';
+import { getListItemById, initialize } from './build/index.js';
 
-async function main() {
-    initialize('01HR4E9KPPW8VJ1JGCTKARFN51');
+initialize('2he0RPbCa92vbBoVHp8ihNGlUdW');
 
-    console.log(await getVersions());
+async function run() {
+    console.log(await getListItemById({
+        id: '2huxRMpzu3vZXNfSX8GThjKuaXb'
+    }));
 }
 
-main();
+run();
