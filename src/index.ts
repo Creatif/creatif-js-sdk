@@ -2,7 +2,7 @@ export { initialize } from '@app/initialize';
 export { getVersions } from '@app/versions/getVersions';
 
 export { getListItemById } from '@app/lists/getListItemById';
-export { getListItemByNameAndLocale } from '@app/lists/getListItemByNameAndLocale';
+export { getListItemsByName } from '@app/lists/getListItemsByName';
 
 export { getMapItemByName } from '@app/maps/getMapItemByName';
 export { getMapItemById } from '@app/maps/getMapItemById';

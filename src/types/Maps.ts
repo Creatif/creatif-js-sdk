@@ -36,12 +36,12 @@ export interface GetMapItemByID {
 
 export interface PaginateMapItems {
     structureName: string;
-    versionName?: string;
     page: number;
-    search: string;
-    orderBy: OrderBy;
-    orderDirection: OrderDirection;
-    locales: string[];
-    groups: string[];
+    versionName?: string;
+    search?: string;
+    orderBy?: OrderBy;
+    orderDirection?: OrderDirection;
+    locales?: string[];
+    groups?: string[];
     options?: Options;
 }

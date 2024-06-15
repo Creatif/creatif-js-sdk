@@ -35,14 +35,13 @@ export interface GetListItemsByName {
 }
 
 export interface PaginateListItems {
-    versionName?: string;
     structureName: string;
     page: number;
-    search: string;
-    orderBy: OrderBy;
-    orderDirection: OrderDirection;
-    locales: string[];
-    groups: string[];
-
+    search?: string;
+    orderBy?: OrderBy;
+    orderDirection?: OrderDirection;
+    locales?: string[];
+    groups?: string[];
+    versionName?: string;
     options?: Options;
 }
