@@ -9,3 +9,5 @@ export { getMapItemById } from '@app/maps/getMapItemById';
 
 export { paginateMapItems } from '@app/maps/paginateMapItems';
 export { paginateListItems } from '@app/lists/paginateListItems';
+
+export { getFile } from '@app/files/getFile';
