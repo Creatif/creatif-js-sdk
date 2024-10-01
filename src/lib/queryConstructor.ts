@@ -1,4 +1,5 @@
 import type { Options } from '@appTypes/Shared';
+import type { ObjectConvertable } from '@appTypes/Queries';
 
 export function queryConstructor(
     page = 1,
@@ -8,6 +9,7 @@ export function queryConstructor(
     search = '',
     locales: string[] = [],
     options?: Options,
+    queries: ObjectConvertable[] = [],
 ) {
     let base = `?page=${page}&orderBy=${orderBy}&direction=${direction}&search=${search}`;
 
@@ -33,6 +35,10 @@ export function queryConstructor(
         const valueOnly = options.valueOnly;
 
         base += `&options=valueOnly:${valueOnly ? 'true' : 'false'}`;
+    }
+
+    if (queries && queries.length !== 0) {
+        base += `&query=${JSON.stringify(queries.map((t) => t.toObject()))}`;
     }
 
     return base;

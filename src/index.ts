@@ -11,3 +11,7 @@ export { paginateMapItems } from '@app/maps/paginateMapItems';
 export { paginateListItems } from '@app/lists/paginateListItems';
 
 export { getFile } from '@app/files/getFile';
+
+export { equal } from '@app/query/equal';
+export { unequal } from '@app/query/unequal';
+export { and, or } from '@app/query/logical';

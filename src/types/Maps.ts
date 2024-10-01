@@ -1,4 +1,5 @@
 import type { Behaviour, ConnectionItem, Options, OrderBy, OrderDirection } from '@appTypes/Shared';
+import type { ObjectConvertable } from '@appTypes/Queries';
 
 export interface GetMapItemByName {
     versionName?: string;
@@ -44,4 +45,5 @@ export interface PaginateMapItems {
     locales?: string[];
     groups?: string[];
     options?: Options;
+    query: ObjectConvertable[];
 }
