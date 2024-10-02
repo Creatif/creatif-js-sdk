@@ -14,4 +14,7 @@ export { getFile } from '@app/files/getFile';
 
 export { equal } from '@app/query/equal';
 export { unequal } from '@app/query/unequal';
-export { and, or } from '@app/query/logical';
+export { greaterThan } from '@app/query/greaterThan';
+export { greaterThanOrEqual } from '@app/query/greaterThanOrEqual';
+export { lessThan } from '@app/query/lessThan';
+export { lessThanOrEqual } from '@app/query/lessThanOrEqual';

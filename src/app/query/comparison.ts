@@ -1,5 +1,4 @@
 import type { ComparisonOperator, ObjectConvertable, QueryDataType, QueryResult } from '@appTypes/Queries';
-import { isFloat } from '@app/query/util';
 
 export class ComparisonImplementation implements ObjectConvertable {
     constructor(
