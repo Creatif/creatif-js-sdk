@@ -6,6 +6,7 @@ export class ComparisonImplementation implements ObjectConvertable {
         private readonly value: string,
         private readonly operator: ComparisonOperator,
     ) {}
+
     toObject(): QueryResult {
         let t: QueryDataType = 'string';
         if (Number.isInteger(this.value)) {

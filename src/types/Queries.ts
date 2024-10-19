@@ -11,8 +11,6 @@ export interface ObjectConvertable {
     toObject(): QueryResult;
 }
 
-export type LogicalOperator = 'and' | 'or';
-
 export type ComparisonOperator =
     | 'equal'
     | 'unequal'
