@@ -28,7 +28,7 @@ function validateDataType(t: QueryDataType) {
     }
 
     if (!found) {
-        return `Invalid operator. Operators can be only ${operators.join(', ')}`;
+        return `Invalid operator. Operators can be only ${types.join(', ')}`;
     }
 
     return '';
@@ -36,7 +36,7 @@ function validateDataType(t: QueryDataType) {
 
 function validateColumn(column: string): string {
     if (column == '') {
-        return "Query 'column' cannot be empty";
+        return 'Query \'column\' cannot be empty';
     }
 
     return '';

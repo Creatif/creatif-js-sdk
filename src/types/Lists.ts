@@ -1,4 +1,5 @@
 import type { Behaviour, ConnectionItem, Options, OrderBy, OrderDirection } from './Shared';
+import type { ObjectConvertable } from '@appTypes/Queries';
 
 export interface ListItem<Value> {
     structureId: string;
@@ -44,4 +45,5 @@ export interface PaginateListItems {
     groups?: string[];
     versionName?: string;
     options?: Options;
+    query: ObjectConvertable[];
 }
