@@ -1,9 +1,9 @@
-import {describe, expect, it} from 'vitest';
-import {workingTestProjects} from './projects';
+import { describe, expect, it } from 'vitest';
+import { workingTestProjects } from './projects';
 // @ts-ignore
-import {equal, unequal, paginateMapItems, initialize, getMapItemById, getMapItemByName} from '@root';
+import { equal, unequal, paginateMapItems, initialize, getMapItemById, getMapItemByName } from '@root';
 // @ts-ignore
-import {MapItem} from '@appTypes/types/Maps';
+import { MapItem } from '@appTypes/types/Maps';
 
 function assertSingleResultValid(res: MapItem<any>) {
     expect(res.value).not.toBe(undefined);
@@ -22,30 +22,27 @@ function assertSingleResultValid(res: MapItem<any>) {
 }
 
 describe('Map test', () => {
-    it("should fail multiple times validating the query of paginate map items", async () => {
+    it('should fail multiple times validating the query of paginate map items', async () => {
         const projectId = workingTestProjects[0];
 
         initialize({
             projectId: projectId,
-            baseUrl: "http://localhost:3002",
-        })
+            baseUrl: 'http://localhost:3002',
+        });
 
-        const {error} = await paginateMapItems({
-            structureName: "",
+        const { error } = await paginateMapItems({
+            structureName: '',
             page: 0,
             versionName: '',
             groups: '',
             orderBy: 9,
             orderDirection: 'invalid',
             search: 343,
-            query: [
-                equal('', ''),
-                unequal('', ''),
-            ]
-        })
+            query: [equal('', ''), unequal('', '')],
+        });
 
         expect(error).not.toBe(undefined);
-        expect(Object.values(error.messages).length).equal(7)
+        expect(Object.values(error.messages).length).equal(7);
     });
 
     it('should paginate through map items', async () => {
@@ -56,12 +53,12 @@ describe('Map test', () => {
 
             initialize({
                 projectId: projectId,
-                baseUrl: "http://localhost:3002",
-            })
+                baseUrl: 'http://localhost:3002',
+            });
 
-            const {result: firstResult, error: firstError} = await paginateMapItems({
+            const { result: firstResult, error: firstError } = await paginateMapItems({
                 projectId: projectId,
-                structureName: "Accounts",
+                structureName: 'Accounts',
                 page: 1,
                 limit: 5,
                 versionName: 'v1',
@@ -74,9 +71,9 @@ describe('Map test', () => {
                 assertSingleResultValid(res);
             }
 
-            let {result: secondResult, error: secondError} = await paginateMapItems({
+            let { result: secondResult, error: secondError } = await paginateMapItems({
                 projectId: projectId,
-                structureName: "Accounts",
+                structureName: 'Accounts',
                 page: 1,
                 limit: 5,
                 versionName: 'v1',
@@ -99,12 +96,12 @@ describe('Map test', () => {
 
             initialize({
                 projectId: projectId,
-                baseUrl: "http://localhost:3002",
-            })
+                baseUrl: 'http://localhost:3002',
+            });
 
-            const {result, error} = await paginateMapItems({
+            const { result, error } = await paginateMapItems({
                 projectId: projectId,
-                structureName: "Accounts",
+                structureName: 'Accounts',
                 page: 1,
                 limit: 10,
                 versionName: 'v1',
@@ -117,7 +114,7 @@ describe('Map test', () => {
                 assertSingleResultValid(res);
                 const itemId = res.itemId;
 
-                const {result, error} = await getMapItemById({
+                const { result, error } = await getMapItemById({
                     versionName: 'v1',
                     id: itemId,
                 });
@@ -136,12 +133,12 @@ describe('Map test', () => {
 
             initialize({
                 projectId: projectId,
-                baseUrl: "http://localhost:3002",
-            })
+                baseUrl: 'http://localhost:3002',
+            });
 
-            const {result, error} = await paginateMapItems({
+            const { result, error } = await paginateMapItems({
                 projectId: projectId,
-                structureName: "Accounts",
+                structureName: 'Accounts',
                 page: 1,
                 limit: 10,
                 versionName: 'v1',
@@ -155,7 +152,7 @@ describe('Map test', () => {
                 const itemId = res.itemName;
                 const locale = res.locale;
 
-                const {result, error} = await getMapItemByName({
+                const { result, error } = await getMapItemByName({
                     versionName: 'v1',
                     name: itemId,
                     structureName: 'Accounts',
@@ -167,4 +164,4 @@ describe('Map test', () => {
             }
         }
     });
-})
+});

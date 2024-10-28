@@ -5,7 +5,7 @@ import { determineResult } from '@app/determineResult';
 import { Routes } from '@lib/http/routes';
 import { queryConstructor } from '@lib/queryConstructor';
 import { checkRuntime } from '@lib/checkRuntime';
-import {validatePaginationBlueprint} from '@lib/validatePaginationBlueprint';
+import { validatePaginationBlueprint } from '@lib/validatePaginationBlueprint';
 
 export async function paginateListItems<Value>(blueprint: PaginateListItems): Promise<Result<ListItem<Value>[]>> {
     checkRuntime();
@@ -18,7 +18,7 @@ export async function paginateListItems<Value>(blueprint: PaginateListItems): Pr
                 call: 'paginateMapItems',
                 messages: errors,
                 status: 400,
-            }
+            },
         };
     }
 

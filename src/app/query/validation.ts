@@ -1,5 +1,5 @@
 import type { ComparisonOperator, ObjectConvertable, QueryDataType } from '@appTypes/Queries';
-import {ErrorCalls} from '@appTypes/Http';
+import type { ErrorCalls } from '@appTypes/Http';
 
 function validateOperators(operator: ComparisonOperator): string {
     const operators = ['equal', 'unequal', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'];
@@ -46,7 +46,8 @@ function validateColumn(column: string): string {
 export function validateQuery(call: ErrorCalls, errors: Record<string, string>, queries: ObjectConvertable[] = []) {
     for (const q of queries) {
         if (!q.toObject) {
-            errors['invalidColumn'] = 'Invalid usage. You must always use the provided functions like equal(), unequal() etc...';
+            errors['invalidColumn'] =
+                'Invalid usage. You must always use the provided functions like equal(), unequal() etc...';
         }
         const obj = q.toObject();
 
@@ -58,7 +59,6 @@ export function validateQuery(call: ErrorCalls, errors: Record<string, string>, 
         v = validateOperators(obj.operator);
         if (v !== '') {
             errors['invalidOperator'] = v;
-
         }
 
         v = validateDataType(obj.type);

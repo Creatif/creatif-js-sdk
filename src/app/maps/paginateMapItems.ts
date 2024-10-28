@@ -5,7 +5,7 @@ import { Routes } from '@lib/http/routes';
 import { queryConstructor } from '@lib/queryConstructor';
 import type { MapItem, PaginateMapItems } from '@appTypes/Maps';
 import { checkRuntime } from '@lib/checkRuntime';
-import {validatePaginationBlueprint} from '@lib/validatePaginationBlueprint';
+import { validatePaginationBlueprint } from '@lib/validatePaginationBlueprint';
 
 export async function paginateMapItems<Value>(blueprint: PaginateMapItems): Promise<Result<MapItem<Value>[]>> {
     checkRuntime();
@@ -18,7 +18,7 @@ export async function paginateMapItems<Value>(blueprint: PaginateMapItems): Prom
                 call: 'paginateMapItems',
                 messages: errors,
                 status: 400,
-            }
+            },
         };
     }
 

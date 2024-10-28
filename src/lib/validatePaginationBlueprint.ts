@@ -1,6 +1,6 @@
-import type {PaginateMapItems} from '@appTypes/Maps';
-import {validateQuery} from '@app/query/validation';
-import type {PaginateListItems} from '@appTypes/Lists';
+import type { PaginateMapItems } from '@appTypes/Maps';
+import { validateQuery } from '@app/query/validation';
+import type { PaginateListItems } from '@appTypes/Lists';
 
 export function validatePaginationBlueprint(blueprint: PaginateMapItems | PaginateListItems): Record<string, string> {
     const errors: Record<string, string> = {};
