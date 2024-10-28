@@ -8,7 +8,7 @@ Links:
 # Installation
 
 ```shell
-npm install creatif-js-sdk@0.0.4
+npm install creatif-js-sdk@0.0.8
 ```
 
 # Setup
@@ -356,3 +356,11 @@ getMapItemByName({
 ```
 
 Usage for `paginateListItems` is the same.
+
+# Setting up testing
+
+First, head to [creatif-backend](https://github.com/Creatif/creatif-backend) project and set it up. You need a live server and data already seeded
+for testing to work. 
+
+After you seeded and set up testing, go to `tests/projects.ts` and replace the IDs with the results of the seeding program. After that, 
+hit `npm run test` and the tests will run. 
