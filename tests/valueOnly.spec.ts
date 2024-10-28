@@ -25,7 +25,7 @@ describe('Value only test', () => {
                 versionName: 'v1',
                 options: {
                     valueOnly: true,
-                }
+                },
             });
 
             expect(error).toBe(undefined);
@@ -59,7 +59,7 @@ describe('Value only test', () => {
                 versionName: 'v1',
                 options: {
                     valueOnly: true,
-                }
+                },
             });
 
             expect(error).toBe(undefined);

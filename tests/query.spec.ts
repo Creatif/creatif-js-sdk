@@ -49,7 +49,7 @@ describe('Query test', () => {
 
             expect(error).toBe(undefined);
             expect(result).not.toBe(undefined);
-            expect(result.length).greaterThan(0)
+            expect(result.length).greaterThan(0);
             for (const res of result) {
                 assertSingleResultValid(res);
             }
