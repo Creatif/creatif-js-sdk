@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import path, { resolve, join } from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
@@ -13,6 +14,15 @@ export default defineConfig({
             insertTypesEntry: true,
         }),
     ],
+    test: {
+        // Vitest-specific configurations
+        alias: {
+            '@app': join(__dirname, 'src/app'),
+            '@lib': join(__dirname, 'src/lib'),
+            '@root': join(__dirname, 'src'),
+            '@appTypes': join(__dirname, 'src/types'),
+        },
+    },
     server: {
         watch: {
             include: ['src/**'],

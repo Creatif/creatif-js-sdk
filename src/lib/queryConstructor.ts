@@ -3,6 +3,7 @@ import type { ObjectConvertable } from '@appTypes/Queries';
 
 export function queryConstructor(
     page = 1,
+    limit = 100,
     groups: string[] = [],
     orderBy = 'created_at',
     direction = 'desc',
@@ -11,7 +12,7 @@ export function queryConstructor(
     options?: Options,
     queries: ObjectConvertable[] = [],
 ) {
-    let base = `?page=${page}&orderBy=${orderBy}&direction=${direction}&search=${search}`;
+    let base = `?page=${page}&limit=${limit}&orderBy=${orderBy}&direction=${direction}&search=${search}`;
 
     if (groups.length > 0) {
         const newGroups: string[] = [];
