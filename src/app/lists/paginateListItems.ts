@@ -10,12 +10,12 @@ import { validatePaginationBlueprint } from '@lib/validatePaginationBlueprint';
 export async function paginateListItems<Value>(blueprint: PaginateListItems): Promise<Result<ListItem<Value>[]>> {
     checkRuntime();
 
-    const errors = validatePaginationBlueprint(blueprint);
+    const errors = validatePaginationBlueprint('paginateListItems', blueprint);
     if (Object.values(errors).length !== 0) {
         return {
             result: undefined,
             error: {
-                call: 'paginateMapItems',
+                call: 'paginateListItems',
                 messages: errors,
                 status: 400,
             },

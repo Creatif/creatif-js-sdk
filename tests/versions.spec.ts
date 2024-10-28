@@ -4,6 +4,7 @@ import { workingTestProjects } from './projects';
 import { getVersions, initialize } from '@root';
 // @ts-ignore
 import { MapItem } from '@appTypes/types/Maps';
+
 describe('Version test', () => {
     it('should get all versions of a project', async () => {
         for (const projectId of workingTestProjects) {

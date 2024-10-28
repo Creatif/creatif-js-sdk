@@ -12,7 +12,7 @@ function validateOperators(operator: ComparisonOperator): string {
     }
 
     if (!found) {
-        return `Invalid operator. Operators can be only ${operators.join(', ')}`;
+        return `Invalid operator. Operators can only be ${operators.join(', ')}`;
     }
 
     return '';
@@ -29,7 +29,7 @@ function validateDataType(t: QueryDataType) {
     }
 
     if (!found) {
-        return `Invalid operator. Operators can be only ${types.join(', ')}`;
+        return `Invalid data type. Data types can only be ${types.join(', ')}`;
     }
 
     return '';
@@ -46,7 +46,7 @@ function validateColumn(column: string): string {
 export function validateQuery(call: ErrorCalls, errors: Record<string, string>, queries: ObjectConvertable[] = []) {
     for (const q of queries) {
         if (!q.toObject) {
-            errors['invalidColumn'] =
+            errors['invalidQueryUsage'] =
                 'Invalid usage. You must always use the provided functions like equal(), unequal() etc...';
         }
         const obj = q.toObject();

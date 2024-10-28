@@ -10,7 +10,7 @@ import { validatePaginationBlueprint } from '@lib/validatePaginationBlueprint';
 export async function paginateMapItems<Value>(blueprint: PaginateMapItems): Promise<Result<MapItem<Value>[]>> {
     checkRuntime();
 
-    const errors = validatePaginationBlueprint(blueprint);
+    const errors = validatePaginationBlueprint('paginateMapItems', blueprint);
     if (Object.values(errors).length !== 0) {
         return {
             result: undefined,

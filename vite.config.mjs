@@ -3,6 +3,7 @@ import path, { resolve, join } from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,7 @@ export default defineConfig({
         dts({
             insertTypesEntry: true,
         }),
+        tsconfigPaths(),
     ],
     test: {
         // Vitest-specific configurations

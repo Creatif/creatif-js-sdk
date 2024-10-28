@@ -1,8 +1,9 @@
 import type { PaginateMapItems } from '@appTypes/Maps';
 import { validateQuery } from '@app/query/validation';
 import type { PaginateListItems } from '@appTypes/Lists';
+import {ErrorCalls} from '@appTypes/Http';
 
-export function validatePaginationBlueprint(blueprint: PaginateMapItems | PaginateListItems): Record<string, string> {
+export function validatePaginationBlueprint(call: ErrorCalls, blueprint: PaginateMapItems | PaginateListItems): Record<string, string> {
     const errors: Record<string, string> = {};
     if (!blueprint.structureName) {
         errors['structureName'] = '\'structureName\' argument is required and must be a string';
@@ -48,7 +49,7 @@ export function validatePaginationBlueprint(blueprint: PaginateMapItems | Pagina
         errors['search'] = '\'search\' argument must be a string';
     }
 
-    validateQuery('paginateMapItems', errors, blueprint.query);
+    validateQuery(call, errors, blueprint.query);
 
     return errors;
 }
