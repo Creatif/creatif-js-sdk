@@ -38,6 +38,7 @@ export interface GetListItemsByName {
 export interface PaginateListItems {
     structureName: string;
     page: number;
+    limit: number;
     search?: string;
     orderBy?: OrderBy;
     orderDirection?: OrderDirection;

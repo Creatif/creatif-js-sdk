@@ -5,22 +5,20 @@ import { determineResult } from '@app/determineResult';
 import { Routes } from '@lib/http/routes';
 import { queryConstructor } from '@lib/queryConstructor';
 import { checkRuntime } from '@lib/checkRuntime';
-import { validateQuery } from '@app/query/validation';
+import {validatePaginationBlueprint} from '@lib/validatePaginationBlueprint';
 
 export async function paginateListItems<Value>(blueprint: PaginateListItems): Promise<Result<ListItem<Value>[]>> {
     checkRuntime();
-    const error = validateQuery(blueprint.query);
 
-    if (error !== '') {
+    const errors = validatePaginationBlueprint(blueprint);
+    if (Object.values(errors).length !== 0) {
         return {
+            result: undefined,
             error: {
                 call: 'paginateMapItems',
-                messages: {
-                    unexpectedError: 'An unexpected error occurred',
-                },
+                messages: errors,
                 status: 400,
-            },
-            result: undefined,
+            }
         };
     }
 
@@ -28,6 +26,7 @@ export async function paginateListItems<Value>(blueprint: PaginateListItems): Pr
         'get',
         `${Routes.GET_LIST_ITEMS}/${blueprint.structureName}${queryConstructor(
             blueprint.page,
+            blueprint.limit,
             blueprint.groups,
             blueprint.orderBy,
             blueprint.orderDirection,
